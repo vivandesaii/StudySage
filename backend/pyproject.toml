@@ -6,8 +6,10 @@ readme = "README.md"
 authors = [
     { name = "Vivan Desai", email = "vivandesai17@outlook.com" }
 ]
-requires-python = ">=3.9"
-dependencies = []
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.146.0",
+]
 
 [project.scripts]
 studysage = "studysage:main"
