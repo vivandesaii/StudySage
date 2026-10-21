@@ -16,4 +16,4 @@ async def health_check():
 
 @app.post("/documents", status_code=201)
 async def accept_document(document: DocumentCreate):
-                            return document
+    return document
