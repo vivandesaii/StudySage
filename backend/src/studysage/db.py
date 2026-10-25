@@ -3,7 +3,8 @@ from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
 from .config import settings
 
-engine = create_engine(settings.database_url, echo=True)
+# In config.py: sql_echo: bool = False
+engine = create_engine(settings.database_url, echo=settings.sql_echo)
 
 SessionLocal = sessionmaker(bind=engine)
 
@@ -13,7 +14,7 @@ class Base(DeclarativeBase):
 
 
 def get_db():
-    db = SessionLocal
+    db = SessionLocal()
     try:
         yield db
     finally:
