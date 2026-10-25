@@ -5,24 +5,19 @@ Revises: e42a1b5ab5f8
 Create Date: 2026-10-25 19:39:40.948168
 
 """
-from typing import Sequence, Union
 
-from alembic import op
-import sqlalchemy as sa
-
+from collections.abc import Sequence
 
 # revision identifiers, used by Alembic.
-revision: str = '2cc6d0efb635'
-down_revision: Union[str, Sequence[str], None] = 'e42a1b5ab5f8'
-branch_labels: Union[str, Sequence[str], None] = None
-depends_on: Union[str, Sequence[str], None] = None
+revision: str = "2cc6d0efb635"
+down_revision: str | Sequence[str] | None = "e42a1b5ab5f8"
+branch_labels: str | Sequence[str] | None = None
+depends_on: str | Sequence[str] | None = None
 
 
 def upgrade() -> None:
     """Upgrade schema."""
-    pass
 
 
 def downgrade() -> None:
     """Downgrade schema."""
-    pass
