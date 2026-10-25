@@ -1,7 +1,8 @@
 from datetime import datetime
-from typing import Optional
-from sqlalchemy import String, Text, DateTime, func
+
+from sqlalchemy import DateTime, String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column
+
 from .db import Base
 
 
@@ -15,7 +16,7 @@ class Document(Base):
     title: Mapped[str] = mapped_column(String(200), nullable=False)
 
     # Optional long text description
-    description: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    description: Mapped[str | None] = mapped_column(Text, nullable=True)
 
     # Set by the database with timezone support (server-side default)
     created_at: Mapped[datetime] = mapped_column(

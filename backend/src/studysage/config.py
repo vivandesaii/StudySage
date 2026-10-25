@@ -1,4 +1,5 @@
 from pathlib import Path
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 # Find the backend/ directory automatically (3 levels up from src/studysage/config.py)
