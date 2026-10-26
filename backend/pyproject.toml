@@ -15,15 +15,12 @@ dependencies = [
     "sqlalchemy>=2.1.6",
 ]
 
-[tool.setuptools]
-package-dir = {"" = "src"}
-
-[tool.setuptools.packages.find]
-where = ["src"]
-
 [build-system]
 requires = ["uv_build>=0.13.1,<0.14.0"]
 build-backend = "uv_build"
+
+[tool.uv]
+package = true
 
 [dependency-groups]
 dev = [
