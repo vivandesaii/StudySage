@@ -2,6 +2,8 @@ services:
   db:
     image: pgvector/pgvector:pg17-trixie
     container_name: postgres-studysage
+    env_file:
+      - backend/.env
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
