@@ -1,8 +1,8 @@
-"""final migration fix removed index in id
+"""create documents table
 
-Revision ID: eff64973084c
+Revision ID: 0a2420514963
 Revises:
-Create Date: 2026-10-25 19:52:07.082491
+Create Date: 2026-10-25 22:41:19.631561
 
 """
 
@@ -13,7 +13,7 @@ import sqlalchemy as sa
 from alembic import op
 
 # revision identifiers, used by Alembic.
-revision: str = "eff64973084c"
+revision: str = "0a2420514963"
 down_revision: str | Sequence[str] | None = None
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None

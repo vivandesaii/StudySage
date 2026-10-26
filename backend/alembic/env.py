@@ -1,15 +1,8 @@
-import sys
 from logging.config import fileConfig
-from pathlib import Path
 
 from sqlalchemy import engine_from_config, pool
 
 from alembic import context
-
-# 1. Add the backend's src/ directory to Python's path so it can find 'studysage'
-sys.path.append(str(Path(__file__).resolve().parent.parent / "src"))
-
-# 2. Import cleanly from your studysage package
 from studysage.config import settings
 from studysage.models import Base
 

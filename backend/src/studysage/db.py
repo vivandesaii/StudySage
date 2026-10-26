@@ -12,6 +12,7 @@ class Base(DeclarativeBase):
     pass
 
 
+# Used for dependency injection with fast api, on routes that require database interaction
 def get_db():
     db = SessionLocal()
     try:
