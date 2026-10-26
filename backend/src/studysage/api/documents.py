@@ -36,5 +36,3 @@ def get_document_by_id(id: int, db: Session = Depends(get_db)):
             detail="Document with this id does not exist.",
         )
     return document
-
-
