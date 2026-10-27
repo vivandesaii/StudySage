@@ -13,6 +13,21 @@ jobs:
       run:
         working-directory: ./backend
 
+    services:
+      postgres:
+        image: pgvector/pgvector:pg17-trixie
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: studysage_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -31,5 +46,12 @@ jobs:
       - name: Run Ruff linter
         run: uv run ruff check .
 
+      - name: Run Alembic Migrations
+        env:
+          DATABASE_URL: postgresql+psycopg://postgres:postgres@localhost:5432/studysage_test
+        run: uv run alembic upgrade head
+
       - name: Run Pytest
+        env:
+          DATABASE_URL: postgresql+psycopg://postgres:postgres@localhost:5432/studysage_test
         run: uv run pytest

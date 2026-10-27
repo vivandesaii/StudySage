@@ -4,7 +4,7 @@
 
 from fastapi import FastAPI
 
-from studysage.schemas import DocumentCreate
+from studysage.api.documents import router as documents_router
 
 app = FastAPI()
 
@@ -14,6 +14,4 @@ async def health_check():
     return {"status": "ok"}
 
 
-@app.post("/documents", status_code=201)
-async def accept_document(document: DocumentCreate):
-    return document
+app.include_router(documents_router)
